@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100;0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>Responsive Result Page</title>
+
+  <!--  remember it's a result website, so that's why i'm using opacity -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    body{
+      display:flex;
+      flex-direction: column;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Hanken Grotesk';
+      font-size: 14px
+    }
+    .big-div{
+      display: flex;
+      height:50vh;
+      width: 35%;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0px 0px 5px 4px hsla(241, 72%, 46%, 0.147);
+    }
+    .result-con{
+      background: linear-gradient(to top, hsla(252, 60%, 44%, 0.892),hsla(252, 74%, 68%, 0.892));
+      width:48%;
+      height: 99%;
+      padding:3px 0px 2px 10px;
+      border-radius: 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
+    #score-advice{
+      text-align: center;
+    }
+    .new-sum{
+      width: 50%;
+      height: 95%;
+    }
+    .colorword{
+      color:hsl(241, 100%, 89%);
+    }
+    .marg{
+      margin-top: 18px;
+    }
+    #avg-sum{
+      background-color: rgba(62, 10, 207, 0.812);
+      background:linear-gradient(rgba(43, 4, 151, 0.944),rgba(87, 44, 204, 0.653));
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      text-align: center;
+      transition: transform 1s ease;
+    }
+    #avg-sum:hover{
+      transform: rotatey(360deg);
+    }
+    #wht{
+      color: white;
+      font-weight: 700;
+      font-size: 20px;
+    }
+    .grid-sum{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      text-align: center;
+      row-gap: 5px;
+      box-sizing: content-box;
+    }
+    #react{
+      background-color: rgba(239, 181, 172, 0.382);
+    }
+    #memy{
+      background-color: rgba(225, 237, 124, 0.382);
+    }
+    #verb{
+      background-color: rgba(146, 237, 124, 0.382);
+    }
+    #memy{
+      background-color: rgba(225, 237, 124, 0.382);
+    }
+    #visualz{
+      background-color: rgba(128, 124, 237, 0.382);
+    }
+    .widgh{
+      margin: 10px;
+      display: grid;
+      grid-template: 1fr/1fr 1fr 1fr;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      color:hsl(225, 2%, 62%);
+      border-radius: 5px;
+      opacity: 0.5;
+      transition: opacity o.5 ease-in;
+    }
+    .widgh:hover{
+      opacity: 1;
+    }
+    span{
+      color: black;
+    }
+    .bton{
+      text-align: center;
+      background-color: hsl(225, 18%, 49%);
+      height:30px;
+      border-radius: 15px;
+      margin: 20px 12px 0px 12px;
+      padding-top: 7px;
+      transition: background-color 1.2s ease-in;
+    }
+    .bton:hover{
+      background-color:hsla(241, 94%, 49%, 0.836) ;
+    }
+    #redct::before{
+      content: url(./assets/images/icon-reaction.svg);
+    }
+    #redct{
+      color: rgb(219, 78, 57);
+    }
+    #redct::selection{
+      background-color: rgb(103, 16, 3);
+    }
+    #memct{
+      color: rgb(219, 206, 57);
+    }
+    #memct::before{
+      content: url(./assets/images/icon-memory.svg);
+    }
+    #memct::selection{
+      background-color: rgb(62, 57, 2);
+    }
+    #verct{
+      color: rgb(65, 219, 57);
+    }
+    #verct::selection{
+      background-color: rgb(7, 97, 2);
+    }
+    #verct::before{
+      content: url(./assets/images/icon-verbal.svg);
+    }
+    #visct{
+      color: rgb(57, 73, 219);
+    }
+    #visct::selection{
+      background-color: rgb(2, 10, 85);
+    }
+    #visct::before{
+      content: url(./assets/images/icon-visual.svg);
+    }
+    h3{
+      margin-left: 15px;
+    }
+    @media (max-width:640px) {
+      body{
+        margin: 0;
+        height: 100%;
+        font-size: 18px;
+      }
+      .big-div{
+        flex-direction: column;
+        width: 100%;
+        height: 90%;
+        border-radius: 0px;
+        box-shadow: none;
+      }
+      .result-con{
+        border-radius: 0px 0px 45px 45px;
+        height: 400px;
+        width: 100%;
+      }
+      .new-sum{
+        display: flex;
+        width: 80%;
+        justify-content: flex-start;
+        flex-direction: column;
+      }
+      #avg-sum{
+        margin-top: 0px;
+        margin-left: 0px;
+      }
+    }
+      </style>
+</head>
+<body>
+  <div class="big-div">
+    <div class="result-con">
+  <div class="colorword marg">Your Result</div>
+  <div id="avg-sum">
+    <p id="wht">76</p>
+    <p class="colorword">of 100</p>
+</div>
+  <div id="wht">Great</div>
+ <div id="score-advice" class="colorword"> You scored higher than 65% of the people who have taken these tests.</div>
+    </div>
+    <div class="new-sum">
+  <h3>Summary</h3>
+<div class="grid-sum">
+  <div id="react"class=" widgh">
+    <div id="redct">&nbsp;Reaction</div>
+    <div></div>
+    <div><Span>80</Span> / 100</div>
+</div>
+<div id="memy" class=" widgh">
+  <div id="memct">&nbsp;Memory</div>
+  <div></div>
+  <div><Span>92</Span> / 100
+    </div>
+</div>
+<div id="verb" class=" widgh">
+ <div id="verct">&nbsp;Verbal</div>
+ <div></div>
+<div>
+<Span>61 </Span>/ 100</div>
+</div>
+<div id="visualz" class=" widgh">
+<div id="visct">Visual</div>
+<div></div>
+<div>
+  <Span id="boldone">72</Span> / 100</div>
+</div>
+</div>
+  <div class="bton">
+    Continue
+  </div>
+</div>
+    </div>
+</div>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+</html>
